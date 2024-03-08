@@ -1,28 +1,14 @@
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'Rock') {
-        if (computerSelection === 'Rock') {
-            return `It's a tie! ${playerSelection} and ${computerSelection}!`;
-        } else if (computerSelection === 'Paper') {
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
-        } else if (computerSelection === 'Scissors') {
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
-        }
-    } else if (playerSelection === 'Paper') {
-        if (computerSelection === 'Rock') {
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
-        } else if (computerSelection === 'Paper') {
-            return `It's a tie! ${playerSelection} and ${computerSelection}!`;
-        } else if (computerSelection === 'Scissors') {
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
-        }
-    } else if (playerSelection === 'Scissors') {
-        if (computerSelection === 'Rock') {
-            return `You lose! ${computerSelection} beats ${playerSelection}!`;
-        } else if (computerSelection === 'Paper') {
-            return `You win! ${playerSelection} beats ${computerSelection}!`;
-        } else if (computerSelection === 'Scissors') {
-            return `It's a tie! ${playerSelection} and ${computerSelection}!`;
-        }
+    if (playerSelection === computerSelection) {
+        return `It's a tie! ${playerSelection} and ${computerSelection}!`;
+    } 
+    else if ((playerSelection === 'Rock' && computerSelection === 'Scissors')
+        || (playerSelection === 'Paper' && computerSelection === 'Rock')
+        || (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
+        return `You win! ${playerSelection} beats ${computerSelection}!`;
+    } 
+    else {
+        return `You lose! ${computerSelection} beats ${playerSelection}!`;
     }
 }
 
